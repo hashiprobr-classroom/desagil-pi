@@ -23,15 +23,13 @@ public class Summarizer {
 			}
 
 			for (Manager manager : managers) {
-				double managedSum = 0;
 				Map<String, Employee> managed = manager.getManaged();
 
-				if (!managed.isEmpty()) {
-					for (Employee employee : managed.values()) {
-						managedSum += employee.getGrade();
-					}
-					sum += managedSum;
+				double managedSum = 0;
+				for (Employee employee : managed.values()) {
+					managedSum += employee.getGrade();
 				}
+				sum += managedSum;
 
 				sum += (manager.getGrade() + managedSum / managed.size()) / 2;
 			}
