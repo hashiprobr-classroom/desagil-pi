@@ -29,9 +29,8 @@ public class Summarizer {
 				for (Employee employee : managed.values()) {
 					managedSum += employee.getGrade();
 				}
-				sum += managedSum;
 
-				sum += (manager.getGrade() + managedSum / managed.size()) / 2;
+				sum += managedSum + (manager.getGrade() + managedSum / managed.size()) / 2;
 			}
 		}
 
