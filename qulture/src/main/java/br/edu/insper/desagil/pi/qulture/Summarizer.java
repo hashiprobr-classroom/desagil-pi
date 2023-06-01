@@ -15,7 +15,7 @@ public class Summarizer {
 		double sum = 0;
 
 		for (Employee employee : employees) {
-			sum += employee.getGrade();
+			sum += employee.totalGrade();
 		}
 
 		for (Manager manager : managers) {

@@ -27,6 +27,7 @@ public class Manager extends Employee {
 		managed.get(position).setGrade(grade);
 	}
 
+	@Override
 	public double totalGrade() {
 		double managedSum = 0;
 		for (Employee employee : managed.values()) {
