@@ -3,37 +3,12 @@ package br.edu.insper.desagil.pi.qulture;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Manager {
-	private int id;
-	private String name;
-	private double grade;
+public class Manager extends Employee {
 	private Map<String, Employee> managed;
 
 	public Manager(int id, String name) {
-		this.id = id;
-		this.name = name;
-		this.grade = 0;
+		super(id, name);
 		this.managed = new HashMap<>();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getGrade() {
-		return grade;
-	}
-
-	public void setGrade(double grade) {
-		this.grade = grade;
 	}
 
 	public Map<String, Employee> getManaged() {
@@ -50,5 +25,15 @@ public class Manager {
 
 	public void evaluate(String position, double grade) {
 		managed.get(position).setGrade(grade);
+	}
+
+	@Override
+	public double totalGrade() {
+		double managedSum = 0;
+		for (Employee employee : managed.values()) {
+			managedSum += employee.getGrade();
+		}
+
+		return managedSum + (getGrade() + managedSum / managed.size()) / 2;
 	}
 }
