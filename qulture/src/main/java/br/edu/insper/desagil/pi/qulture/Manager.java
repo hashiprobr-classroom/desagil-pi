@@ -26,4 +26,13 @@ public class Manager extends Employee {
 	public void evaluate(String position, double grade) {
 		managed.get(position).setGrade(grade);
 	}
+
+	public double totalGrade() {
+		double managedSum = 0;
+		for (Employee employee : managed.values()) {
+			managedSum += employee.getGrade();
+		}
+
+		return managedSum + (getGrade() + managedSum / managed.size()) / 2;
+	}
 }

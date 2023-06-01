@@ -1,7 +1,6 @@
 package br.edu.insper.desagil.pi.qulture;
 
 import java.util.List;
-import java.util.Map;
 
 public class Summarizer {
 	private List<Employee> employees;
@@ -23,14 +22,7 @@ public class Summarizer {
 			}
 
 			for (Manager manager : managers) {
-				Map<String, Employee> managed = manager.getManaged();
-
-				double managedSum = 0;
-				for (Employee employee : managed.values()) {
-					managedSum += employee.getGrade();
-				}
-
-				sum += managedSum + (manager.getGrade() + managedSum / managed.size()) / 2;
+				sum += manager.totalGrade();
 			}
 		}
 
