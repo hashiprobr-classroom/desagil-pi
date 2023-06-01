@@ -13,19 +13,15 @@ public class Summarizer {
 
 	public double summarize() {
 		double sum = 0;
-		int employeesSize = employees.size();
-		int managersSize = managers.size();
 
-		if (employeesSize != 0 || managersSize != 0) {
-			for (Employee employee : employees) {
-				sum += employee.getGrade();
-			}
-
-			for (Manager manager : managers) {
-				sum += manager.totalGrade();
-			}
+		for (Employee employee : employees) {
+			sum += employee.getGrade();
 		}
 
-		return sum / (employeesSize + managersSize);
+		for (Manager manager : managers) {
+			sum += manager.totalGrade();
+		}
+
+		return sum / (employees.size() + managers.size());
 	}
 }
