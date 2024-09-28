@@ -35,7 +35,7 @@ public class Item {
                     maior = i;
                 }
             }
-            if (oferta <= maior) {
+            if (oferta <= ofertas.get(maior)) {
                 return;
             }
         }
