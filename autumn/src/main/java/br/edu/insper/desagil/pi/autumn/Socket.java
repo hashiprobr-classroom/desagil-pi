@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Socket {
-    private int id;
+    private int port;
 
-    public Socket(int id) {
-        this.id = id;
+    public Socket(int port) {
+        this.port = port;
     }
 
-    public int getId() {
-        return id;
+    public int getPort() {
+        return port;
     }
 
     public void send(List<Character> bytes) {

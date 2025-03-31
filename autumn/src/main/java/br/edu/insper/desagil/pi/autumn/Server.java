@@ -4,27 +4,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Server {
-    private List<Socket> socketPool;
-    private Map<Integer, Socket> activeSockets;
+public abstract class Server {
+    private List<Socket> pool;
+    private Map<Integer, Socket> active;
 
-    public Server(List<Socket> socketPool) {
-        this.socketPool = socketPool;
-        this.activeSockets = new HashMap<>();
+    public Server(List<Socket> pool) {
+        this.pool = pool;
+        this.active = new HashMap<>();
     }
 
-    public Map<Integer, Socket> getActiveSockets() {
-        return activeSockets;
+    public Map<Integer, Socket> getActive() {
+        return active;
     }
 
     public void accept() {
-        Socket socket = socketPool.remove(0);
-        activeSockets.put(socket.getId(), socket);
+        Socket socket = pool.remove(0);
+        active.put(socket.getPort(), socket);
     }
 
-    public void broadcast() {
-        for (Socket socket : activeSockets.values()) {
-            socket.send(List.of());
-        }
-    }
+    public abstract void broadcast();
 }
