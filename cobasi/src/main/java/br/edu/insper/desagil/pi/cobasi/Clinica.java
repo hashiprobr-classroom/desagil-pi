@@ -4,30 +4,30 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Clinic {
-    private List<History> histories;
+public class Clinica {
+    private List<Historico> historicos;
 
-    public Clinic() {
-        this.histories = new ArrayList<>();
+    public Clinica() {
+        this.historicos = new ArrayList<>();
     }
 
-    public List<History> getHistories() {
-        return histories;
+    public List<Historico> getHistoricos() {
+        return historicos;
     }
 
-    public void addDogHistory(String guardianName, String petName, LocalDate birth, double weight, String bath) {
-        histories.add(new History(guardianName, petName, 0, birth, weight, bath));
+    public void addHistoricoCachorro(String nomeTutor, String nome, LocalDate dataNascimento, double peso, String tipoBanho) {
+        historicos.add(new Historico(nomeTutor, nome, 0, dataNascimento, peso, tipoBanho));
     }
 
-    public void addCatHistory(String guardianName, String petName, LocalDate birth, double weight, String disease) {
-        histories.add(new History(guardianName, petName, 1, birth, weight, disease));
+    public void addHistoricoGato(String nomeTutor, String nome, LocalDate dataNascimento, double peso, String doenca) {
+        historicos.add(new Historico(nomeTutor, nome, 1, dataNascimento, peso, doenca));
     }
 
-    public void addSnakeHistory(String guardianName, String petName, LocalDate birth, double weight, boolean poisonous) {
-        histories.add(new History(guardianName, petName, 2, birth, weight, Boolean.toString(poisonous)));
+    public void addHistoricoCobra(String nomeTutor, String nome, LocalDate dataNascimento, double peso, boolean venenosa) {
+        historicos.add(new Historico(nomeTutor, nome, 2, dataNascimento, peso, Boolean.toString(venenosa)));
     }
 
-    public void addElephantHistory(String guardianName, String petName, LocalDate birth, double weight, int foodWeight) {
-        histories.add(new History(guardianName, petName, 3, birth, weight, Integer.toString(foodWeight)));
+    public void addHistoricoElefante(String nomeTutor, String nome, LocalDate dataNascimento, double peso, int pesoComida) {
+        historicos.add(new Historico(nomeTutor, nome, 3, dataNascimento, peso, Integer.toString(pesoComida)));
     }
 }
