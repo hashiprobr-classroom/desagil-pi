@@ -8,7 +8,7 @@ public class Historico {
     private int tipo;
     private LocalDate dataNascimento;
     private double peso;
-    private String extra;
+    protected String extra;
 
     public Historico(String nomeTutor, String nome, int tipo, LocalDate dataNascimento, double peso, String extra) {
         this.tutor = new Tutor(nomeTutor);
